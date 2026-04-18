@@ -1,95 +1,175 @@
 'use client';
 import { motion } from 'framer-motion';
-import { Server, Zap, Cpu, Terminal, ArrowRight } from 'lucide-react';
+import { 
+  Zap, Database, Cpu, Mail, MapPin, Linkedin, Phone, 
+  Terminal, Server, Shield, GraduationCap, Award, ChevronRight 
+} from 'lucide-react';
 
-export default function ProfessionalPortfolio() {
-  const metrics = [
-    { label: "Latency Reduction", value: "40%", sub: "via Kafka & Spring Boot", icon: <Zap className="text-amber-400" /> },
-    { label: "Daily Transactions", value: "100K+", sub: "Enterprise-scale Robotics", icon: <Server className="text-blue-400" /> },
-    { label: "API Speed Gain", value: "60%", sub: "via Redis Strategy", icon: <Cpu className="text-emerald-400" /> }
-  ];
+export default function Portfolio() {
+  const skills = {
+    languages: ["Java", "FTL"],
+    frameworks: ["Spring Boot", "Microservices", "REST APIs", "SOAP", "TCP", "Kafka", "RabbitMQ"],
+    cloud: ["AWS", "Docker", "Kubernetes", "CI/CD", "Jenkins", "Git"],
+    databases: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Elasticsearch"]
+  };
 
   return (
-    <div className="min-h-screen bg-[#020617] text-slate-300 font-sans selection:bg-blue-500/30">
-      {/* AMBIENT LIGHTING */}
-      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-blue-600/10 blur-[120px] pointer-events-none" />
+    <main className="min-h-screen bg-[#020617] text-slate-100 selection:bg-blue-500/30 font-sans">
+      {/* BACKGROUND AMBIENCE */}
+      <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-blue-600/5 blur-[120px] pointer-events-none" />
 
-      <nav className="max-w-6xl mx-auto px-6 py-10 flex justify-between items-center relative z-10">
-        <div className="font-black text-xl tracking-tighter text-white">AB.</div>
-        <div className="flex gap-8 text-xs font-bold uppercase tracking-widest text-slate-500">
-          <a href="#" className="hover:text-blue-400 transition-colors">Experience</a>
-          <a href="mailto:ashishbhatia.india@gmail.com" className="hover:text-blue-400 transition-colors">Contact</a>
-        </div>
-      </nav>
-
-      <main className="max-w-5xl mx-auto px-6 pt-20 pb-32 relative z-10">
-        <header className="mb-24">
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }}
-            className="text-7xl md:text-8xl font-black tracking-tight text-white mb-6"
-          >
+      {/* HEADER / HERO */}
+      <section className="relative pt-24 pb-16 px-6 max-w-6xl mx-auto">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+          <h1 className="text-7xl md:text-8xl font-black tracking-tighter mb-4 text-white">
             Ashish Bhatia
-          </motion.h1>
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="text-2xl text-slate-400 max-w-2xl font-medium leading-relaxed"
-          >
-            Senior Member of Technical Staff specializing in <span className="text-white">Distributed Systems</span> and high-frequency robotics architecture at <span className="text-blue-500">Grey Orange</span>.
-          </motion.p>
-        </header>
-
-        {/* BENTO GRID METRICS */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-32">
-          {metrics.map((m, i) => (
-            <motion.div 
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
-              viewport={{ once: true }}
-              className="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 backdrop-blur-sm hover:border-blue-500/50 transition-all group"
-            >
-              <div className="mb-4">{m.icon}</div>
-              <div className="text-5xl font-black text-white mb-2">{m.value}</div>
-              <div className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1">{m.label}</div>
-              <div className="text-[10px] italic text-slate-600 group-hover:text-slate-400 transition-colors">{m.sub}</div>
-            </motion.div>
-          ))}
-        </section>
-
-        {/* WORK EXPERIENCE */}
-        <section className="mb-32">
-          <h2 className="text-xs font-black uppercase tracking-[0.3em] text-blue-500 mb-12">Leadership</h2>
-          <div className="space-y-16">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              className="group"
-            >
-              <div className="flex flex-col md:flex-row md:justify-between mb-4 border-b border-slate-800 pb-4">
-                <h3 className="text-2xl font-bold text-white group-hover:text-blue-400 transition-colors">Senior Member of Technical Staff</h3>
-                <span className="text-slate-500 font-mono">2025 — Present</span>
-              </div>
-              <p className="text-slate-400 leading-relaxed max-w-2xl">
-                Leading the architectural evolution of robotics microservices. Mentoring senior engineering tiers on system design, SOLID principles, and processing **100K+ daily transactions**.
-              </p>
-            </motion.div>
+          </h1>
+          <p className="text-2xl md:text-3xl text-blue-400 font-bold mb-8">Senior Software Engineer</p>
+          
+          <div className="flex flex-wrap gap-y-4 gap-x-8 text-slate-400 font-medium">
+            <a href="mailto:ashishbhatia.india@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors"><Mail size={18}/> ashishbhatia.india@gmail.com</a>
+            <span className="flex items-center gap-2"><Phone size={18}/> 8800847114</span>
+            <span className="flex items-center gap-2"><MapPin size={18}/> Gurugram, India</span>
+            <a href="https://linkedin.com/in/ashishbhatia" className="flex items-center gap-2 hover:text-white transition-colors"><Linkedin size={18}/> linkedin.com/in/ashishbhatia</a>
           </div>
-        </section>
 
-        {/* SKILLS */}
-        <footer className="pt-20 border-t border-slate-900 flex flex-wrap gap-4">
-          {["Java", "Spring Boot", "Kafka", "Redis", "AWS", "Kubernetes", "MCA - Delhi University"].map(skill => (
-            <span key={skill} className="px-4 py-1.5 rounded-full bg-slate-900 border border-slate-800 text-[10px] font-bold uppercase tracking-tighter text-slate-500">
-              {skill}
-            </span>
+          <div className="mt-12 max-w-3xl p-6 rounded-2xl bg-blue-500/5 border border-blue-500/10 text-slate-300 leading-relaxed italic">
+            "Senior software engineer with 9+ years of experience designing and building scalable distributed systems. Expert in microservices architecture, system design, and cloud-native technologies."
+          </div>
+        </motion.div>
+      </section>
+
+      {/* SKILLS GRID */}
+      <section className="relative px-6 max-w-6xl mx-auto mb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {Object.entries(skills).map(([category, items], i) => (
+            <div key={category} className="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+              <h3 className="text-xs font-black uppercase tracking-widest text-blue-500 mb-4">{category}</h3>
+              <div className="flex flex-wrap gap-2">
+                {items.map(item => (
+                  <span key={item} className="text-sm font-semibold text-slate-300">{item}</span>
+                ))}
+              </div>
+            </div>
           ))}
-        </footer>
-      </main>
-    </div>
+        </div>
+      </section>
+
+      {/* EXPERIENCE SECTION */}
+      <section className="relative px-6 max-w-6xl mx-auto mb-32">
+        <h2 className="text-4xl font-black mb-16 flex items-center gap-4">
+          <Terminal className="text-blue-500" /> Professional Experience
+        </h2>
+        
+        <div className="space-y-24">
+          {/* Grey Orange - SMTS */}
+          <ExperienceCard 
+            title="Senior Member of Technical Staff"
+            company="Grey Orange"
+            period="April 2025 — Present"
+            location="Gurugram, India"
+            points={[
+              "Lead architecture and design of mission-critical microservices processing 100K+ transactions daily.",
+              "Architected event-driven systems using Kafka and Spring Boot, reducing system latency by 40%.",
+              "Establishing design patterns and best practices for cross-team technical initiatives."
+            ]}
+          />
+
+          {/* Grey Orange - Previous Role */}
+          <ExperienceCard 
+            title="Software Developer"
+            company="Grey Orange"
+            period="July 2019 — March 2022"
+            location="Gurugram, India"
+            points={[
+              "Developed core features for robotics orchestration platform using Java and Spring Boot.",
+              "Implemented asynchronous messaging with RabbitMQ for improved system resilience.",
+              "Automated deployment pipelines and established monitoring/alerting infrastructure."
+            ]}
+          />
+
+          {/* Zillious Solutions */}
+          <ExperienceCard 
+            title="Consultant"
+            company="Zillious Solutions"
+            period="June 2016 — June 2019"
+            location="Delhi, India"
+            points={[
+              "Developed and deployed enterprise Java applications for banking and finance clients.",
+              "Integrated third-party APIs and payment gateways ensuring secure transaction processing.",
+              "Gathered requirements and provided technical consultation for successful project delivery."
+            ]}
+          />
+        </div>
+      </section>
+
+      {/* EDUCATION & CERTS */}
+      <section className="relative px-6 max-w-6xl mx-auto pb-32 grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div>
+          <h2 className="text-3xl font-black mb-8 flex items-center gap-3">
+            <GraduationCap className="text-blue-500" /> Education
+          </h2>
+          <div className="space-y-6">
+            <div className="p-6 rounded-2xl bg-slate-900/30 border border-slate-800">
+              <h4 className="font-bold text-white">Master of Computer Applications (MCA)</h4>
+              <p className="text-slate-400">University of Delhi</p>
+            </div>
+            <div className="p-6 rounded-2xl bg-slate-900/30 border border-slate-800">
+              <h4 className="font-bold text-white">Bachelor of Computer Applications (BCA)</h4>
+              <p className="text-slate-400">Makhanlal Chaturvedi National University</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 className="text-3xl font-black mb-8 flex items-center gap-3">
+            <Award className="text-blue-500" /> Certifications
+          </h2>
+          <ul className="space-y-4">
+            {[
+              "Software Architecture & Design of Modern Large Scale Systems",
+              "Software Architecture & System Design Practical Case Studies",
+              "Low Level System Design, Design Patterns & SOLID Principles"
+            ].map(cert => (
+              <li key={cert} className="flex gap-3 text-slate-400 font-medium">
+                <ChevronRight className="text-blue-500 shrink-0" size={20} />
+                {cert}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+function ExperienceCard({ title, company, period, location, points }) {
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }} 
+      whileInView={{ opacity: 1 }} 
+      viewport={{ once: true }}
+      className="group relative pl-8 border-l-2 border-slate-800 hover:border-blue-500 transition-colors"
+    >
+      <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-900 border-2 border-slate-800 group-hover:border-blue-500 transition-colors" />
+      <div className="flex flex-col md:flex-row md:justify-between items-start mb-6">
+        <div>
+          <h3 className="text-2xl font-bold text-white">{title}</h3>
+          <p className="text-lg text-blue-400 font-semibold">{company}</p>
+        </div>
+        <div className="text-right mt-2 md:mt-0">
+          <p className="text-slate-200 font-mono text-sm uppercase tracking-wider">{period}</p>
+          <p className="text-slate-500 text-xs font-bold uppercase">{location}</p>
+        </div>
+      </div>
+      <ul className="space-y-3 max-w-3xl">
+        {points.map((p, i) => (
+          <li key={i} className="text-slate-400 leading-relaxed flex gap-3">
+            <span className="text-blue-500 mt-1.5 shrink-0 w-1.5 h-1.5 rounded-full bg-blue-500" />
+            {p}
+          </li>
+        ))}
+      </ul>
+    </motion.div>
   );
 }
