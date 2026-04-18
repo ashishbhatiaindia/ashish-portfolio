@@ -33,7 +33,7 @@ export default function FullPortfolio() {
             <a href="mailto:ashishbhatia.india@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors"><Mail size={18}/> ashishbhatia.india@gmail.com</a>
             <span className="flex items-center gap-2"><Phone size={18}/> 8800847114</span>
             <span className="flex items-center gap-2"><MapPin size={18}/> Gurugram, India</span>
-            <a href="https://linkedin.com/in/ashishbhatia" target="_blank" className="flex items-center gap-2 hover:text-white transition-colors"><Share2 size={18}/> LinkedIn Profile</a>
+            <a href="https://www.linkedin.com/in/ashish-bhatia-7552499b/" target="_blank" className="flex items-center gap-2 hover:text-white transition-colors"><Share2 size={18}/> LinkedIn Profile</a>
           </div>
 
           <p className="mt-12 max-w-4xl text-xl text-slate-300">
