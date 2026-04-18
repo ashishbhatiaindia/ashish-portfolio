@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { 
-  Zap, Database, Cpu, Mail, MapPin, Linkedin, Phone, 
+  Zap, Database, Cpu, Mail, MapPin, Linkedin as LinkedinIcon, Phone, 
   Terminal, Server, Shield, GraduationCap, Award, ChevronRight,
   Code, Users, Layers, Layout
 } from 'lucide-react';
@@ -16,7 +16,6 @@ export default function FullPortfolio() {
 
   return (
     <main className="min-h-screen bg-[#020617] text-slate-100 selection:bg-blue-500/30 font-sans leading-relaxed">
-      {/* BACKGROUND AMBIENCE */}
       <div className="fixed top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-blue-600/5 blur-[120px] pointer-events-none" />
 
       {/* HEADER SECTION */}
@@ -33,16 +32,16 @@ export default function FullPortfolio() {
             <a href="mailto:ashishbhatia.india@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors"><Mail size={18}/> ashishbhatia.india@gmail.com</a>
             <span className="flex items-center gap-2"><Phone size={18}/> 8800847114</span>
             <span className="flex items-center gap-2"><MapPin size={18}/> Gurugram, India</span>
-            <a href="https://linkedin.com/in/ashishbhatia" target="_blank" className="flex items-center gap-2 hover:text-white transition-colors"><Linkedin size={18}/> LinkedIn</a>
+            <a href="https://linkedin.com/in/ashishbhatia" target="_blank" className="flex items-center gap-2 hover:text-white transition-colors"><LinkedinIcon size={18}/> LinkedIn</a>
           </div>
 
           <p className="mt-12 max-w-4xl text-xl text-slate-300">
-            Senior software engineer with <span className="text-blue-400 font-bold">9+ years of experience</span> designing and building scalable distributed systems. Expert in microservices, system design, and delivering high-impact solutions for enterprise-scale applications.
+            Senior software engineer with <span className="text-blue-400 font-bold">9+ years of experience</span> designing and building scalable distributed systems[cite: 4, 5]. Expert in microservices, system design, and delivering high-impact solutions for enterprise-scale applications[cite: 5].
           </p>
         </motion.div>
       </section>
 
-      {/* TECHNICAL SKILLS BENTO GRID */}
+      {/* TECHNICAL SKILLS GRID */}
       <section className="relative px-6 max-w-6xl mx-auto mb-32">
         <h2 className="text-xs font-black uppercase tracking-[0.3em] text-blue-500 mb-8">Technical Arsenal</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -59,7 +58,7 @@ export default function FullPortfolio() {
         </div>
       </section>
 
-      {/* CAREER TIMELINE */}
+      {/* PROFESSIONAL EXPERIENCE */}
       <section className="relative px-6 max-w-6xl mx-auto mb-32">
         <h2 className="text-4xl font-black mb-16 flex items-center gap-4 text-white">
           <Terminal className="text-blue-500" /> Professional Experience
@@ -71,9 +70,10 @@ export default function FullPortfolio() {
             company="Grey Orange"
             date="April 2025 – Present"
             bullets={[
-              "Leading architecture for mission-critical microservices processing 100K+ daily transactions.",
-              "Architected event-driven systems using Kafka/Spring Boot, reducing latency by 40%.",
-              "Mentoring senior engineers on system design and architectural principles."
+              "Lead architecture and design of mission-critical microservices processing 100K+ transactions daily[cite: 17].",
+              "Architected event-driven systems using Kafka/Spring Boot, reducing latency by 40%[cite: 18].",
+              "Establishing design patterns and best practices across the engineering organization[cite: 19].",
+              "Mentoring senior engineers on system design, code quality, and architectural principles[cite: 20]."
             ]}
           />
 
@@ -82,9 +82,10 @@ export default function FullPortfolio() {
             company="Grey Orange"
             date="April 2024 – March 2025"
             bullets={[
-              "Managed a team of engineers for high-priority feature delivery and technical roadmaps.",
-              "Implemented Redis caching strategy, improving API response times by 60%.",
-              "Automated CI/CD pipelines, reducing deployment time by 50%."
+              "Managed a team of engineers, leading sprint planning and technical roadmaps[cite: 24].",
+              "Designed Redis caching strategy, improving API response times by 60%[cite: 25].",
+              "Established CI/CD pipelines, reducing deployment time by 50%[cite: 26].",
+              "Collaborated with product teams to translate business requirements into technical solutions[cite: 27]."
             ]}
           />
 
@@ -93,9 +94,10 @@ export default function FullPortfolio() {
             company="Grey Orange"
             date="April 2022 – April 2024"
             bullets={[
-              "Built RESTful and GraphQL APIs serving 50+ enterprise clients globally.",
-              "Optimized database queries and connection pooling, reducing load by 35%.",
-              "Led migration of monolithic applications to a microservices architecture."
+              "Built RESTful and GraphQL APIs serving 50+ enterprise clients globally[cite: 30].",
+              "Optimized database queries, reducing load by 35% and improving stability[cite: 31].",
+              "Designed fault-tolerant integration layers ensuring 99.9% uptime SLA compliance[cite: 32].",
+              "Led migration of monolithic applications to a microservices architecture[cite: 33]."
             ]}
           />
 
@@ -104,9 +106,9 @@ export default function FullPortfolio() {
             company="Grey Orange"
             date="July 2019 – March 2022"
             bullets={[
-              "Developed core robotics orchestration features using Java and Spring Boot.",
-              "Implemented RabbitMQ messaging for improved system resilience and decoupling.",
-              "Collaborated on automated deployment and infrastructure monitoring."
+              "Developed core robotics orchestration features using Java and Spring Boot[cite: 37].",
+              "Implemented RabbitMQ messaging for improved system resilience and decoupling[cite: 37].",
+              "Automated deployment pipelines and established monitoring infrastructure[cite: 38]."
             ]}
           />
 
@@ -115,9 +117,9 @@ export default function FullPortfolio() {
             company="Zillious Solutions"
             date="June 2016 – June 2019"
             bullets={[
-              "Developed enterprise Java applications for banking and finance clients.",
-              "Integrated secure payment gateways and third-party APIs.",
-              "Provided technical consultation and requirement gathering directly with clients."
+              "Developed enterprise Java applications for banking and finance clients[cite: 43].",
+              "Integrated secure payment gateways and third-party APIs[cite: 44].",
+              "Provided technical consultation and requirement gathering directly with clients[cite: 45]."
             ]}
           />
         </div>
