@@ -1,7 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import { 
-  Zap, Database, Cpu, Mail, MapPin, Linkedin, Phone, 
+  Zap, Database, Cpu, Mail, MapPin, Linkedin as LinkedinIcon, Phone, 
   Terminal, Server, Shield, GraduationCap, Award, ChevronRight 
 } from 'lucide-react';
 
