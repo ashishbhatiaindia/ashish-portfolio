@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "latest",
+   "next": "latest",
     "react": "latest",
     "react-dom": "latest",
     "framer-motion": "latest",
-    "lucide-react": "latest"
+    "lucide-react": "latest",
+    "tailwindcss": "latest",
+    "@tailwindcss/postcss": "latest"
   },
   "devDependencies": {
     "tailwindcss": "latest",
