@@ -30,7 +30,7 @@ export default function Portfolio() {
             <a href="mailto:ashishbhatia.india@gmail.com" className="flex items-center gap-2 hover:text-white transition-colors"><Mail size={18}/> ashishbhatia.india@gmail.com</a>
             <span className="flex items-center gap-2"><Phone size={18}/> 8800847114</span>
             <span className="flex items-center gap-2"><MapPin size={18}/> Gurugram, India</span>
-            <a href="https://linkedin.com/in/ashishbhatia" className="flex items-center gap-2 hover:text-white transition-colors"><Linkedin size={18}/> linkedin.com/in/ashishbhatia</a>
+            <a href="https://linkedin.com/in/ashishbhatia" className="flex items-center gap-2 hover:text-white transition-colors"><LinkedinIcon size={18}/> linkedin.com/in/ashishbhatia</a>
           </div>
 
           <div className="mt-12 max-w-3xl p-6 rounded-2xl bg-blue-500/5 border border-blue-500/10 text-slate-300 leading-relaxed italic">
