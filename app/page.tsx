@@ -2,19 +2,35 @@
 import { motion } from 'framer-motion';
 import { 
   Mail, MapPin, Phone, Share2, Terminal, GraduationCap, Award, ChevronRight,
-  Zap, Database, Cpu, Server, Shield, Code, Users, Layers, Layout
+  Zap, Database, Cpu, Server, Shield, Code, Users, Layers, Layout, Globe, Sparkles, Trophy
 } from 'lucide-react';
 
 export default function Portfolio() {
   // Direct Raw URL to your image on GitHub
   const imagePath = "https://raw.githubusercontent.com/ashishbhatiaindia/ashish-portfolio/main/profile.png.png";
 
+  const skillLabels: Record<string, string> = {
+    languages: "Languages",
+    backendArchitecture: "Backend Architecture",
+    cloudContainers: "Cloud & Containers",
+    messagingStreaming: "Messaging & Streaming",
+    databases: "Databases",
+    aiAgenticSystems: "AI & Agentic Systems",
+    security: "Security",
+    performanceScalability: "Performance & Scalability",
+    leadershipPractices: "Leadership & Practices"
+  };
+
   const skills = {
-    languages: ["Java", "FTL"],
-    frameworks: ["Spring Boot", "Microservices", "REST APIs", "SOAP", "TCP", "Kafka", "RabbitMQ", "GraphQL"],
-    cloud: ["AWS", "Docker", "Kubernetes", "CI/CD", "Jenkins", "Git"],
-    databases: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Elasticsearch"],
-    architecture: ["System Design", "Design Patterns", "SOLID Principles", "Domain-Driven Design", "Event-Driven Architecture"]
+    languages: ["Java", "SQL"],
+    backendArchitecture: ["Spring Boot", "Microservices Design", "REST APIs", "GraphQL", "SOAP", "Event-Driven Architecture", "System Design", "Design Patterns", "SOLID Principles", "Domain-Driven Design"],
+    cloudContainers: ["Google Cloud Platform", "Compute Engine", "Cloud Run", "Cloud Functions", "GKE", "Kubernetes", "Docker", "Vertex AI"],
+    messagingStreaming: ["Kafka", "RabbitMQ"],
+    databases: ["MySQL", "PostgreSQL (RDBMS)", "MongoDB", "Redis", "Elasticsearch (NoSQL)", "pgvector"],
+    aiAgenticSystems: ["RAG Pipelines", "LangChain", "LangGraph", "Multi-Agent Orchestration", "MCP-Integrated Tools", "Prompt Engineering", "LangSmith", "Claude", "Cursor", "GitHub Copilot"],
+    security: ["Secure Coding Practices", "Authentication & Authorization", "Encrypted Transaction Handling", "Compliant Payment Integrations"],
+    performanceScalability: ["Caching Strategy", "Query Optimization", "Async Messaging", "Connection Management", "Retry Logic", "Circuit Breakers", "Dead-Letter Queues"],
+    leadershipPractices: ["Technical Mentoring", "Architecture Reviews", "Engineering Standards", "Cross-Team Technical Direction", "Agile/Scrum", "Code Review"]
   };
 
   return (
@@ -46,7 +62,7 @@ export default function Portfolio() {
               Ashish Bhatia
             </h1>
             <p className="text-2xl md:text-3xl text-blue-400 font-bold mb-8 italic">
-              Senior Software Engineer & Systems Architect
+              Senior Software Engineer | Technical Architect & Lead
             </p>
             
             <div className="flex flex-wrap justify-center md:justify-start gap-y-4 gap-x-8 text-slate-400 font-medium">
@@ -55,15 +71,18 @@ export default function Portfolio() {
               </a>
               <span className="flex items-center gap-2"><Phone size={18}/> 8800847114</span>
               <span className="flex items-center gap-2"><MapPin size={18}/> Gurugram, India</span>
-              <a href="https://linkedin.com/in/ashishbhatia" target="_blank" className="flex items-center gap-2 hover:text-white transition-colors">
+              <a href="https://linkedin.com/in/ashish-bhatia-7552499b" target="_blank" className="flex items-center gap-2 hover:text-white transition-colors">
                 <Share2 size={18}/> LinkedIn
               </a>
             </div>
 
             <p className="mt-8 text-lg text-slate-300 max-w-3xl leading-relaxed">
-              Senior software engineer with 9+ years of experience designing and building scalable distributed systems. 
-              Expert in microservices architecture, system design, and cloud-native technologies with a proven track record of 
-              delivering high-impact solutions for enterprise-scale applications.
+              Backend engineer with 10 years designing, building, and leading distributed systems in Java and Spring Boot —
+              spanning hands-on architecture ownership, microservices design, and technical leadership across teams.
+              Experienced operating as both the deep technical owner of complex systems and the bridge between business
+              goals, product, and engineering. Deep background in event-driven architecture, distributed caching, RDBMS
+              and NoSQL data stores, and cloud-native deployment on Google Cloud Platform. Actively building with modern
+              AI/agentic tooling — RAG pipelines, multi-agent orchestration, and MCP-integrated developer tools.
             </p>
           </motion.div>
         </div>
@@ -72,10 +91,10 @@ export default function Portfolio() {
       {/* SKILLS GRID */}
       <section className="relative px-6 max-w-6xl mx-auto mb-32 pt-10">
         <h2 className="text-xs font-black uppercase tracking-[0.3em] text-blue-500 mb-8">Technical Arsenal</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {Object.entries(skills).map(([category, items]) => (
             <div key={category} className="p-6 rounded-2xl bg-slate-900/40 border border-slate-800/50 backdrop-blur-sm">
-              <h3 className="text-xs font-black uppercase tracking-widest text-blue-400 mb-4">{category}</h3>
+              <h3 className="text-xs font-black uppercase tracking-widest text-blue-400 mb-4">{skillLabels[category]}</h3>
               <div className="flex flex-wrap gap-2">
                 {items.map(item => (
                   <span key={item} className="px-2 py-1 bg-slate-800 rounded text-[10px] font-bold text-slate-300">{item}</span>
@@ -95,48 +114,60 @@ export default function Portfolio() {
         <div className="space-y-20">
           <ExperienceBlock 
             title="Senior Member of Technical Staff"
-            company="Grey Orange"
+            company="GreyOrange"
             date="April 2025 – Present"
             bullets={[
-              "Lead architecture and design of mission-critical microservices supporting warehouse automation systems processing 100K+ transactions daily.",
-              "Architect scalable event-driven systems using Kafka and Spring Boot, reducing system latency by 40%.",
-              "Drive technical decision-making for cross-team initiatives and establishing design patterns.",
-              "Mentor senior engineers on system design, code quality, and architectural principles."
+              "Own end-to-end backend architecture and design of microservices supporting GreyOrange's real-time warehouse orchestration platform, processing high transaction volumes with strict low-latency requirements.",
+              "Drive the re-architecture of the platform's core event-driven pipeline onto Kafka and Spring Boot — redesigning partitioning strategy, consumer scaling, and failure isolation to meaningfully improve latency and sustained throughput.",
+              "Own performance and scalability strategy across core services, including caching design, async processing patterns, and database query optimization.",
+              "Define and enforce engineering standards — design patterns, API contracts, secure coding practices, code review discipline — adopted across multiple engineering teams.",
+              "Lead architecture design discussions and reviews; mentor 5 senior engineers on distributed systems trade-offs, API design, and production readiness.",
+              "Actively integrate AI-assisted engineering tools (Claude, Cursor, MCP-integrated tooling) into daily development for code review, architecture exploration, and documentation."
             ]}
+            subProject={{
+              title: "AI-Powered Operations Assistant",
+              subtitle: "Internal POC",
+              bullets: [
+                "Built a RAG-based internal assistant to answer operational queries over warehouse SOP documents and API documentation, reducing manual lookups during client onboarding.",
+                "Used LangChain for orchestration, OpenAI embeddings for semantic search, and Elasticsearch as the vector store — integrated with existing Spring Boot services via REST.",
+                "Designed the retrieval pipeline with chunking strategy, metadata filtering, and re-ranking to improve domain-specific response relevance.",
+                "Evaluated response quality using LangSmith tracing, iterating on prompt templates and retrieval parameters.",
+                "Proposed architecture for a multi-agent workflow with separate agents for query classification, document retrieval, and response generation."
+              ]
+            }}
           />
 
           <ExperienceBlock 
             title="Assistant Technical Manager"
-            company="Grey Orange"
+            company="GreyOrange"
             date="April 2024 – March 2025"
             bullets={[
-              "Managed a team of 2 engineers, leading sprint planning and technical roadmap development.",
-              "Designed and implemented distributed caching using Redis, improving API response times by 60%.",
-              "Established CI/CD pipelines and automated testing, reducing deployment time by 50%.",
-              "Collaborated with product teams to translate business requirements into technical solutions."
+              "Owned platform architecture and technical delivery while directly leading a small engineering team across sprint planning and hands-on implementation.",
+              "Directed end-to-end integration architecture for 15+ external warehouse management systems, owning the full lifecycle from client-facing scoping to production rollout.",
+              "Built core platform components from scratch, including a custom TCP server and SOAP server, for real-time, low-latency communication with third-party systems.",
+              "Designed a Redis-based distributed caching layer that materially improved real-time inventory query response times.",
+              "Ran client-facing workshops to define technical scope and freeze API contracts prior to development, acting as the direct bridge between business stakeholders and engineering."
             ]}
           />
 
           <ExperienceBlock 
             title="Senior Software Developer"
-            company="Grey Orange"
+            company="GreyOrange"
             date="April 2022 – April 2024"
             bullets={[
-              "Built RESTful and GraphQL APIs serving 50+ enterprise clients globally.",
-              "Optimized database queries and connection pooling, reducing load by 35%.",
-              "Designed fault-tolerant integration layers for WMS/ERP systems, ensuring 99.9% uptime SLA.",
-              "Led migration of monolithic application to microservices architecture."
+              "Owned backend architecture and delivery for core warehouse automation modules end-to-end, from design through production deployment.",
+              "Built a fault-tolerant integration layer for third-party WMS/ERP systems using retry logic, circuit breakers, and dead-letter queues to improve integration reliability.",
+              "Identified and resolved performance bottlenecks in high-traffic data pipelines through query optimization and database connection management."
             ]}
           />
 
           <ExperienceBlock 
             title="Software Developer"
-            company="Grey Orange"
+            company="GreyOrange"
             date="July 2019 – March 2022"
             bullets={[
-              "Developed core robotics orchestration features using Java and Spring Boot.",
-              "Implemented asynchronous messaging with RabbitMQ to improve system resilience.",
-              "Automated deployment pipelines and established monitoring infrastructure."
+              "Developed core backend features for a real-time robotics orchestration platform using Java and Spring Boot.",
+              "Replaced synchronous service calls with RabbitMQ-based async messaging, improving system resilience and reducing service coupling."
             ]}
           />
 
@@ -145,16 +176,15 @@ export default function Portfolio() {
             company="Zillious Solutions"
             date="June 2016 – June 2019"
             bullets={[
-              "Developed and deployed enterprise Java applications for banking and finance clients.",
-              "Integrated third-party APIs and payment gateways ensuring secure transaction processing.",
-              "Worked directly with clients to gather requirements and provide technical consultation."
+              "Built and delivered enterprise Java applications for the travel domain, including secure, compliant third-party payment gateway integrations with encrypted, authenticated transaction handling.",
+              "Managed client relationships across the full project lifecycle, from requirements gathering through production delivery."
             ]}
           />
         </div>
       </section>
 
       {/* EDUCATION & CERTIFICATIONS */}
-      <section className="relative px-6 max-w-6xl mx-auto pb-32 border-t border-slate-900 pt-20 grid grid-cols-1 md:grid-cols-2 gap-16">
+      <section className="relative px-6 max-w-6xl mx-auto pb-20 border-t border-slate-900 pt-20 grid grid-cols-1 md:grid-cols-2 gap-16">
         <div>
           <h2 className="text-3xl font-black mb-10 flex items-center gap-3 text-white uppercase">
             <GraduationCap className="text-blue-500" /> Education
@@ -162,7 +192,7 @@ export default function Portfolio() {
           <div className="space-y-8">
             <div>
               <h4 className="text-xl font-bold text-slate-200">Master of Computer Applications (MCA)</h4>
-              <p className="text-blue-400">University of Delhi</p>
+              <p className="text-blue-400">University of Delhi (North Campus)</p>
               <p className="text-slate-500 text-xs mt-1">Delhi, India</p>
             </div>
             <div>
@@ -178,23 +208,34 @@ export default function Portfolio() {
             <Award className="text-blue-500" /> Certifications
           </h2>
           <ul className="space-y-4 text-slate-400 font-medium">
-            <li className="flex gap-3"><ChevronRight className="text-blue-500 flex-shrink-0" /> Software Architecture & Design of Modern Large Scale Systems</li>
-            <li className="flex gap-3"><ChevronRight className="text-blue-500 flex-shrink-0" /> Software Architecture & System Design Practical Case Studies</li>
-            <li className="flex gap-3"><ChevronRight className="text-blue-500 flex-shrink-0" /> Low Level System Design, Design Patterns & SOLID Principles</li>
+            <li className="flex gap-3"><ChevronRight className="text-blue-500 flex-shrink-0" /> Software Architecture & Design of Modern Large Scale Systems — Udemy</li>
+            <li className="flex gap-3"><ChevronRight className="text-blue-500 flex-shrink-0" /> Software Architecture & System Design Practical Case Studies — Udemy</li>
+            <li className="flex gap-3"><ChevronRight className="text-blue-500 flex-shrink-0" /> Low Level System Design, Design Patterns & SOLID Principles — Udemy</li>
           </ul>
         </div>
+      </section>
+
+      {/* ACHIEVEMENTS */}
+      <section className="relative px-6 max-w-6xl mx-auto pb-32">
+        <h2 className="text-3xl font-black mb-10 flex items-center gap-3 text-white uppercase">
+          <Trophy className="text-blue-500" /> Achievements
+        </h2>
+        <ul className="space-y-4 text-slate-400 font-medium">
+          <li className="flex gap-3"><ChevronRight className="text-blue-500 flex-shrink-0" /> All India Rank 4 — Delhi University MCA entrance examination</li>
+          <li className="flex gap-3"><ChevronRight className="text-blue-500 flex-shrink-0" /> Contestant, India's Got Talent (TV show) — "Fastest Human Calculator" challenge</li>
+        </ul>
       </section>
     </main>
   );
 }
 
-function ExperienceBlock({ title, company, date, bullets }: any) {
+function ExperienceBlock({ title, company, date, bullets, subProject }: any) {
   return (
     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="relative pl-10 border-l border-slate-800">
       <div className="absolute -left-[5px] top-0 w-[9px] h-[9px] rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
       <div className="flex flex-col md:flex-row md:justify-between mb-2">
         <h3 className="text-2xl font-bold text-white tracking-tight">{title}</h3>
-        <span className="text-slate-500 font-mono text-xs font-bold uppercase">{date}</span>
+        {date && <span className="text-slate-500 font-mono text-xs font-bold uppercase">{date}</span>}
       </div>
       <p className="text-blue-400 font-bold mb-6 text-lg tracking-tight uppercase">{company}</p>
       <ul className="space-y-3 max-w-4xl">
@@ -205,6 +246,20 @@ function ExperienceBlock({ title, company, date, bullets }: any) {
           </li>
         ))}
       </ul>
+
+      {subProject && (
+        <div className="mt-8 max-w-4xl">
+          <h4 className="text-lg font-bold text-slate-200 mb-4 tracking-tight">{subProject.title} <span className="text-slate-500 text-sm font-normal">({subProject.subtitle})</span></h4>
+          <ul className="space-y-3">
+            {subProject.bullets.map((point: string, i: number) => (
+              <li key={i} className="text-slate-400 flex gap-3 text-sm md:text-base leading-relaxed">
+                <span className="text-blue-500 mt-2 font-bold select-none text-xs">●</span>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </motion.div>
   );
 }
