@@ -112,19 +112,17 @@ export default function Portfolio() {
               "Lead architecture design discussions and reviews; mentor 5 senior engineers on distributed systems trade-offs, API design, and production readiness.",
               "Actively integrate AI-assisted engineering tools (Claude, Cursor, MCP-integrated tooling) into daily development for code review, architecture exploration, and documentation."
             ]}
-          />
-
-          <ExperienceBlock 
-            title="AI-Powered Operations Assistant"
-            company="Internal POC, GreyOrange"
-            date=""
-            bullets={[
-              "Built a RAG-based internal assistant to answer operational queries over warehouse SOP documents and API documentation, reducing manual lookups during client onboarding.",
-              "Used LangChain for orchestration, OpenAI embeddings for semantic search, and Elasticsearch as the vector store — integrated with existing Spring Boot services via REST.",
-              "Designed the retrieval pipeline with chunking strategy, metadata filtering, and re-ranking to improve domain-specific response relevance.",
-              "Evaluated response quality using LangSmith tracing, iterating on prompt templates and retrieval parameters.",
-              "Proposed architecture for a multi-agent workflow with separate agents for query classification, document retrieval, and response generation."
-            ]}
+            subProject={{
+              title: "AI-Powered Operations Assistant",
+              subtitle: "Internal POC",
+              bullets: [
+                "Built a RAG-based internal assistant to answer operational queries over warehouse SOP documents and API documentation, reducing manual lookups during client onboarding.",
+                "Used LangChain for orchestration, OpenAI embeddings for semantic search, and Elasticsearch as the vector store — integrated with existing Spring Boot services via REST.",
+                "Designed the retrieval pipeline with chunking strategy, metadata filtering, and re-ranking to improve domain-specific response relevance.",
+                "Evaluated response quality using LangSmith tracing, iterating on prompt templates and retrieval parameters.",
+                "Proposed architecture for a multi-agent workflow with separate agents for query classification, document retrieval, and response generation."
+              ]
+            }}
           />
 
           <ExperienceBlock 
@@ -219,7 +217,7 @@ export default function Portfolio() {
   );
 }
 
-function ExperienceBlock({ title, company, date, bullets }: any) {
+function ExperienceBlock({ title, company, date, bullets, subProject }: any) {
   return (
     <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="relative pl-10 border-l border-slate-800">
       <div className="absolute -left-[5px] top-0 w-[9px] h-[9px] rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
@@ -236,6 +234,20 @@ function ExperienceBlock({ title, company, date, bullets }: any) {
           </li>
         ))}
       </ul>
+
+      {subProject && (
+        <div className="mt-8 max-w-4xl">
+          <h4 className="text-lg font-bold text-slate-200 mb-4 tracking-tight">{subProject.title} <span className="text-slate-500 text-sm font-normal">({subProject.subtitle})</span></h4>
+          <ul className="space-y-3">
+            {subProject.bullets.map((point: string, i: number) => (
+              <li key={i} className="text-slate-400 flex gap-3 text-sm md:text-base leading-relaxed">
+                <span className="text-blue-500 mt-2 font-bold select-none text-xs">●</span>
+                {point}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </motion.div>
   );
 }
